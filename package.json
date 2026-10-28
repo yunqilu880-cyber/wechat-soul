@@ -1,0 +1,37 @@
+{
+  "name": "wechat-soul",
+  "version": "1.0.0",
+  "description": "Personal DeepSeek WeChat AI friend",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "dev": "tsx src/index.ts",
+    "chat": "tsx src/cli/index.ts",
+    "chat:mock": "cross-env MOCK_MODE=true tsx src/cli/index.ts",
+    "bind-owner": "tsx src/cli/bind-owner.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src test",
+    "postinstall": "tsc -p node_modules/@pinixai/weixin-bot/tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@pinixai/weixin-bot": "^1.2.0",
+    "dotenv": "^18.0.9",
+    "openai": "^7.45.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.5",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.13.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}
