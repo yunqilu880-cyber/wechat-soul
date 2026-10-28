@@ -2,7 +2,7 @@
   "name": "wechat-soul",
   "version": "1.0.0",
   "description": "Personal DeepSeek WeChat AI friend",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "vitest run",
     "dev": "tsx src/index.ts",

@@ -12,7 +12,7 @@
 
 ## Windows PowerShell 快速开始
 
-安装 Node.js 22+，在项目目录运行：
+安装 Node.js 22+（Node 22 的内置 SQLite 会显示实验性 API 警告），在项目目录运行：
 
 ```powershell
 npm install
