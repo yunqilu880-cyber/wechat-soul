@@ -9,6 +9,7 @@
 - 人格模板位于 `persona/`；长期记忆仅由 `/remember` 显式保存。
 - 终端聊天与 Mock 聊天；微信 SDK 扫码与长轮询适配。
 - 所有者白名单、长度/速率/并发限制、重复消息去重。
+- 微信回复发送失败时保留待发送内容，有限重试；若微信重新投递同一消息，可复用回复，避免再次调用模型。
 
 ## Windows PowerShell：从 DeepSeek 到微信
 
@@ -41,6 +42,6 @@ Node.js 22.13+ 执行 `npm ci && npm run build`，将 `.env`、`DATA_DIR` 放在
 
 ## 验证、限制与路线
 
-`npm run typecheck && npm run lint && npm run test && npm run build`。真实 DeepSeek 调用需要付费 Key；真机微信端到端验证需要账号授权。管理页面属于 P2，尚未实现。下一步：真机扫码验证、受控管理页面、SDK 凭据迁移和重连观测。
+`npm run typecheck && npm run lint && npm run test && npm run build`。真实 DeepSeek 调用需要付费 Key；真机微信端到端验证需要账号授权。发送失败会尝试三次；若之后没有微信重复投递，待发送内容不会自行发出。管理页面属于 P2，尚未实现。下一步：真机扫码验证、受控管理页面、SDK 凭据迁移和重连观测。
 
 依赖致谢：[weixin-bot SDK](https://github.com/epiral/weixin-bot)、[DeepSeek API](https://api-docs.deepseek.com/zh-cn/)、OpenAI SDK、SQLite。调研见 [docs/research.md](docs/research.md)。

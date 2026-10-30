@@ -37,7 +37,12 @@ export class WeixinAdapter {
    }
    const id=String(msg.raw.message_id);
    const answer=await this.chat.handle(msg.userId,msg.text,id);
-   if(answer){try{await this.bot.sendTyping(msg.userId);}catch{/* typing is optional */}await this.bot.reply(msg,answer);}
+   if(answer){try{await this.bot.sendTyping(msg.userId);}catch{/* typing is optional */}
+    for(let attempt=1;attempt<=3;attempt++){
+     try {await this.bot.reply(msg,answer);this.storage.markSent(id,msg.userId);break;}
+     catch(error){if(attempt===3)throw error;await (this.options.retryDelay??delay)(attempt*1000);}
+    }
+   }
   });
   await this.bot.run();
  }
