@@ -2,6 +2,8 @@
 
 基于 DeepSeek 的个人微信 AI 好友。微信通道使用 iLink/ClawBot 独立机器人身份，不接管私人微信账号。当前是可本地测试的 MVP；真实微信扫码、账号权限及收发仍需设备持有者验证。
 
+**当前版本不能让别人通过微信号添加一个普通个人微信好友。** 登录二维码用于授权机器人会话。普通好友形态的可行性核查见 [docs/personal-wechat-feasibility.md](docs/personal-wechat-feasibility.md)。
+
 ## 功能
 
 - DeepSeek 连续聊天；最近 20 条消息作为上下文，SQLite 持久化。
